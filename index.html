@@ -3,32 +3,212 @@
         <title>
             Demo - The Witcher
         </title>
-        <link rel="stylesheet" href="main.css" type="text/css"/>
-        <link rel="stylesheet" href="menu.css" type="text/css"/>
-        
-        <script type="text/javascript"> 
-            imageDir = "http://mvcreative.ru/example/6/2/snow/"; 
-            sflakesMax = 65; 
-            sflakesMaxActive = 65; 
-            svMaxX = 2; 
-            svMaxY = 6; 
-            ssnowStick = 1; 
-            ssnowCollect = 0; 
-            sfollowMouse = 1; 
-            sflakeBottom = 0; 
-            susePNG = 1; 
-            sflakeTypes = 5; 
-            sflakeWidth = 15; 
-            sflakeHeight = 15; 
-        </script> 
-        <script type="text/javascript" src="http://mvcreative.ru/example/6/2/snow.js"></script>
-        
+        <style type="text/css">
+            /* MAIN STYLE CSS*/
+            body
+            {
+                background-image: url(img/Swords2.jpg);
+                background-attachment: fixed;
+                max-width: 960;
+                margin: 50px 100px 100px 100px;
+            }
+
+            div
+            {
+                font-size: 20px;
+                color: #C0C0C0;
+                border: 5px solid black;
+                padding: 15px;
+                background: rgba(30, 30, 30, 0.7);
+                border-radius: 25px;
+            }
+
+            p
+            {
+                font-family: Century Gothic;
+                color: beige;
+            }
+
+            #header
+            {
+                padding: 0px;
+                border-radius: 75px 0 200px 0;
+                min-height: 425px;
+                box-shadow: 0 0 50px rgba(0, 0, 0, 0.86);
+                background: rgba(50, 50, 50, 0.5);
+            }
+
+            #leftSidebar
+            {
+                float: left;
+                width: 300px;
+                height: 460px;
+                margin-right: 15px;
+            }
+
+            #footer
+            {
+                text-align: center;
+            }
+
+            #imgFooter
+            {
+                margin: 0 180px 0 180px;
+            }
+
+            #teleportUp
+            {
+                width: 55px;
+                border: 0px;
+                border-radius: 55px;
+                right: 10px;
+                bottom: 10px;
+                position: fixed;
+            }
+
+            #imgTeleport
+            {
+                width: 55px;
+            }
+
+            .imgLogo
+            {
+                width: 400px;
+                float: left;
+            }
+
+            .imgText
+            {
+                width: 500px;
+                margin: 25px;
+                margin-top: 100px;
+            }
+
+            .imgContent
+            {
+                width: 920px;
+                border-radius: 60px;
+                margin-top: 10px;
+            }
+
+            .imgCharacter
+            {
+                width: 320px;
+                margin: 15px 320px 15px 320px; 
+            }
+
+            .imgMenu
+            {
+                height: 45px;
+                float: left;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .imgHeadingContent
+            {
+                border-radius: 50px;
+                background: #C0C0C0;
+                width: 70px;
+                height: 70px;
+                padding: 3px;
+                border: 2px solid black;
+                float: left;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .headingCh {
+                text-transform: uppercase;
+                /*Все буквы большие*/
+                letter-spacing: 3px;
+                /*Растояние между буквами*/
+                text-align: center;
+                font-size: 40px;
+                color: #8FBC8F;
+                margin-top: 20px;
+            }
+
+            .heading {
+                text-transform: uppercase;
+                /*Все буквы большие*/
+                letter-spacing: 3px;
+                /*Растояние между буквами*/
+                font-size: 34px;
+                padding-left: 15px;
+                margin-bottom: 15px;
+                margin-top: 40px;
+            }
+
+            .headingCh:hover, .heading:hover
+            {
+                color: #B22222;
+            }
+
+            .menuItem 
+            {
+                padding: 0;
+                list-style: none;/*Убрать кружочки перед элементами списка*/
+            }
+
+            .menuItem a {
+                text-decoration: none;
+                border: 3px solid #8B0000;
+                border-radius: 10px;
+                outline: none;
+                display: block;
+                padding: 6px 0; 
+                letter-spacing: 1px;
+                font-weight: 300;
+                font-size: 26px;
+                font-family: 'Roboto', sans-serif;
+                color: #8FBC8F;
+                transition: .10s linear;
+            }
+
+            .menuItem a:hover 
+            {
+                color: #B22222;
+                font-size: 30px;
+            }
+            
+            /* MAIN MENU CSS*/
+            #mainMenu
+            {
+                height: 40px;
+                width: 720px;
+                border-radius: 10px 0px 250px 40px;
+            }
+
+            .mainMenuItem
+            {
+                text-decoration: none;
+                color: #C0C0C0;
+                font-size: 36px;
+                line-height: 42px;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                font-weight: bold;
+                font-family: Mistral;
+                margin: 0px 8px 0px 8px;
+                border: 2px solid rgba(0, 0, 0, 0.01);
+                border-radius: 15px 0px 30px 0px;
+            }
+
+            a.mainMenuItem:hover 
+            {
+                /* Добавить анимацию плавной смены цвета текста*/
+                color: #B22222;
+                background: rgba(220, 220, 220, 0.7);
+                border: 2px solid silver;
+            }
+        </style>        
     </head>
     <body>
         <a name="webHead"></a>
         <div id="header">
-            <img src="img/Geralt 7.png" class="imgLogo">
-            <img src="img/Witcher Text 2.png" class="imgText">
+            <img src="https://ibb.co/PxHzxdS" class="imgLogo">
+            <img src="https://ibb.co/sV8L4yh" class="imgText">
         </div>
         
         
@@ -41,22 +221,22 @@
         
         
         <div id="leftSidebar">
-            <img src="img/Witcher 4.png" class="imgHeadingContent"/>
+            <img src="img/https://ibb.co/1vMptd0" class="imgHeadingContent"/>
             <h3 class="headingCh">Меню</h3>
             <ul class="menuItem">
-                <img src="img/Witcher 6.png" class="imgMenu"/>
+                <img src="https://ibb.co/M79pLTy" class="imgMenu"/>
                 <li><a href="#ref1">Главная</a></li>
-                <img src="img/Witcher 6.png" class="imgMenu"/>
+                <img src="https://ibb.co/M79pLTy" class="imgMenu"/>
                 <li><a href="#ref2">Игровой процесс</a></li>
-                <img src="img/Witcher 6.png" class="imgMenu"/>
+                <img src="https://ibb.co/M79pLTy" class="imgMenu"/>
                 <li><a href="#ref3">Мир игры</a></li>
-                <img src="img/Witcher 6.png" class="imgMenu"/>
+                <img src="https://ibb.co/M79pLTy" class="imgMenu"/>
                 <li><a href="#ref4">Сюжет</a></li>
-                <img src="img/Witcher 6.png" class="imgMenu"/>
+                <img src="https://ibb.co/M79pLTy" class="imgMenu"/>
                 <li><a href="#ref5">Сюжетная линия</a></li>
-                <img src="img/Witcher 6.png" class="imgMenu"/>
+                <img src="https://ibb.co/M79pLTy" class="imgMenu"/>
                 <li><a href="#ref6">Концовки</a></li>
-                <img src="img/Witcher 6.png" class="imgMenu"/>
+                <img src="https://ibb.co/M79pLTy" class="imgMenu"/>
                 <li><a href="#ref7">Главные герои</a></li>
             </ul>
         </div>
@@ -73,9 +253,9 @@
             </p>
             
             <a name="ref2"></a>
-            <img src="img/Witcher 12.png" class="imgHeadingContent"/>
+            <img src="https://ibb.co/Xz08Gwq" class="imgHeadingContent"/>
             <h3 class="heading">Игровой процесс</h3>
-            <img src="img/Content1.jpg" class="imgContent">
+            <img src="https://ibb.co/wK7Ck2P" class="imgContent">
             
             <p>
                 В течение игры под управлением игрока находится единственный, заранее заданный герой — ведьмак Геральт из Ривии, который путешествует по игровому миру, общается с неигровыми персонажами и выполняет различные задания, в частности, связанные с поиском сокровищ и охотой на чудовищ. В нескольких особо важных с точки зрения сюжета эпизодах игры под управление игрока попадает героиня Цири; в это время игроку недоступны многие элементы геймплея, доступные при игре за Геральта, но у Цири есть уникальные способности, такие как телепортация.
@@ -92,9 +272,9 @@
             </p>
             
             <a name="ref3"></a>
-            <img src="img/Witcher 12.png" class="imgHeadingContent"/>
+            <img src="https://ibb.co/Xz08Gwq" class="imgHeadingContent"/>
             <h3 class="heading">Мир игры</h3>
-            <img src="img/Content2.jpg" class="imgContent">
+            <img src="https://ibb.co/3MXdx39" class="imgContent">
             
             <p>
                 Действие игры происходит в вымышленном мире, ранее описанном Анджеем Сапковским в книгах о ведьмаке. Северные королевства, где происходит основное действие игры, отдалённо схожи со средневековой Центральной и Восточной Европой, тогда как острова Скеллиге напоминают Скандинавию эпохи викингов. Княжество Туссент, добавленное в дополнении «Кровь и вино», разительно отличается от других регионов — это солнечный край виноградников, похожий на южную Францию или Италию.
@@ -107,9 +287,9 @@
             </p>
 
             <a name="ref4"></a>
-            <img src="img/Witcher 12.png" class="imgHeadingContent"/>
+            <img src="https://ibb.co/Xz08Gwq" class="imgHeadingContent"/>
             <h3 class="heading">Сюжет</h3>
-            <img src="img/Content3.jpg" class="imgContent">
+            <img src="https://ibb.co/3N9Tnxs" class="imgContent">
             
             <p>
                 «Ведьмак 3: Дикая Охота» отличается крайне продолжительной основной сюжетной линией со множеством заданий и событий: даже у тестировщиков игры, знавших кратчайшие пути к цели и пропускавших диалоги и сюжетные ролики, скоростное прохождение игры заняло 25 часов, тогда как «Ведьмак 2: Убийцы королей» таким же образом можно пройти за 2 часа. Несмотря на то, что игра активно использует персонажей и сюжеты как книг Сапковского, так и предыдущих игр компании CD Projekt RED, их знания от игрока не требуется: игра «Ведьмак 3: Дикая Охота» более самодостаточна, чем «Ведьмак» и «Ведьмак 2: Убийцы королей», и предоставляет игроку всю необходимую информацию по мере обследования игрового мира.
@@ -123,9 +303,9 @@
             </p>
 
             <a name="ref5"></a>
-            <img src="img/Witcher 12.png" class="imgHeadingContent"/>
+            <img src="https://ibb.co/Xz08Gwq" class="imgHeadingContent"/>
             <h3 class="heading">Основная сюжетная линия</h3>
-            <img src="img/Content4.jpg" class="imgContent">
+            <img src="https://ibb.co/VWjhR6j" class="imgContent">
             
             <p>
                 Геральт и Весемир в поисках Йеннифэр останавливаются в деревушке Белый Сад, занятой нильфгаардцами в ходе войны. Йеннифэр помогает Геральту добраться до города Вызимы, где нильфгаардский император Эмгыр вар Эмрейс поручает ведьмаку найти Цири — с этой целью Геральт должен посетить несколько мест: Велен, Новиград и острова Скеллиге. В Велене Геральт встречается с Филипом Стенгером, известным как «Кровавый Барон»: Барон некоторое время давал приют Цири, но в обмен на помощь Геральт должен найти пропавших жену и дочь Кровавого Барона. В их поисках ведьмак сталкивается со своей старой знакомой, волшебницей Кейрой Мец, скрывающейся в Велене от охотников за колдуньями, а позже — с потусторонними силами: Хозяйками Леса, тремя древними ведьмами, которым поклоняются местные крестьяне. В Новиграде Геральт встречается с Трисс Меригольд, которая направляет его к «онейромантке» Корине Тилли, умеющей по сновидениям узнавать прошлое. Ведьмак узнаёт, что Цири встречалась со старым другом Геральта, бардом Лютиком; Лютик, однако, попал в лапы главаря одной из новиградских банд, Ублюдка Младшего. С помощью бывшего шефа реданской разведки Сигизмунда Дийкстры, короля Редании Радовида и других союзников Геральт освобождает Лютика и узнаёт, что Цири с помощью Лютика пыталась добыть инструменты для снятия некоего проклятия. На архипелаге Скеллиге Геральт встречается с Йеннифэр, расследующей магическую катастрофу, связанную с Цири; благодаря неохотной помощи друида Мышовура они узнают, что Цири побывала на островах вместе с эльфом-чародеем. Йеннифэр применяет некромантию, чтобы оживить и допросить труп Скьялля — островитянина, помогавшего Цири и погибшего во время нападения Дикой Охоты, и узнаёт, что Цири бежала в Велен.
@@ -134,9 +314,9 @@
             </p>
 
             <a name="ref6"></a>
-            <img src="img/Witcher 12.png" class="imgHeadingContent"/>
+            <img src="https://ibb.co/Xz08Gwq" class="imgHeadingContent"/>
             <h3 class="heading">Концовки</h3>
-            <img src="img/Content5.jpg" class="imgContent"/>
+            <img src="https://ibb.co/TLK7KYZ" class="imgContent"/>
             
             <p>
                 В зависимости от того, какие решения во время игры принял игрок, следует один из трёх эпилогов. Эти эпилоги представляют собой отдельные интерактивные задания, в которых игрок управляет Геральтом:
@@ -148,34 +328,34 @@
             </p>
             
             <a name="ref7"></a>
-            <img src="img/Witcher 12.png" class="imgHeadingContent"/>
+            <img src="https://ibb.co/Xz08Gwq" class="imgHeadingContent"/>
             <h3 class="heading">Главные герои</h3>
-            <img src="img/Content6.jpg" class="imgContent"/>
+            <img src="https://ibb.co/bLLX8Qm" class="imgContent"/>
             
             <p>
                 <h3 class="headingCh">Геральт из Ривии</h3>
-                <img src="img/Character 1.png" class="imgCharacter"/>
+                <img src="https://ibb.co/6F8TG4Y" class="imgCharacter"/>
             
                 Главный герой, странствующий ведьмак — охотник на чудовищ, умелый боец, обладающий некоторыми магическими способностями. В процессе обучения ведьмаки принимают «мутагены», делающие их сильнее, быстрее и дающие возможность принимать действенные, но ядовитые для простых людей алхимические зелья. Геральт старается держаться подальше от политики, но всегда оказывается в центре развития важных событий.
             <br/><br/>
                 <h3 class="headingCh">Цирилла Фиона Элен Рианнон</h3>
-                <img src="img/Character 2.png" class="imgCharacter"/>
+                <img src="https://ibb.co/tYfVqZ8" class="imgCharacter"/>
             
                 «Ведьмачка», приёмная дочь Геральта. Цири проходила обучение навыкам ведьмака, но не Испытание Травами. Она является родной дочерью нильфгаардского императора Эмгыра вар Эмрейса и наследницей трона. «Старшая Кровь», текущая в её жилах, даёт Цири возможность путешествовать между мирами — эта её способность делает Цири желанной и для Дикой Охоты.
             <br/><br/>
                 <h3 class="headingCh">Йеннифэр из Венгерберга</h3>
-                <img src="img/Character 3.png" class="imgCharacter"/>
+                <img src="https://ibb.co/fvB12JV" class="imgCharacter"/>
             
                 Дерзкая и независимая чародейка, «любовь всей жизни» Геральта. Несмотря на взаимные чувства, Геральт и Йеннифэр — полные противоположности и часто ссорятся друг с другом. В двух предыдущих играх Йеннифэр лишь упоминалась или кратко появлялась в воспоминаниях Геральта.
             <br/><br/>
                 <h3 class="headingCh">Трисс Меригольд</h3>
-                <img src="img/Character 4.png" class="imgCharacter"/>
+                <img src="https://ibb.co/M7xPWT1" class="imgCharacter"/>
             
                 Чародейка, бывшая любовница Геральта, а также лучшая подруга Йеннифэр и частый гость в Каэр Морхене. Её внешность в играх несколько отличается от книжного описания: в книгах у Трисс голубые глаза, каштановые волосы, а также шрамы от ожогов, полученных на войне. Трисс играла немаловажную роль в сюжетах двух предыдущих игр, несколько раз спасая Геральту жизнь.
             </p>
         </div>
         
-        <img src="img/Geralt 6.png" id="imgFooter">
+        <img src="https://ibb.co/5vnpjMw" id="imgFooter">
         <div id="footer">
             Контакты для связи: ccoder.alex@gmail.com
             <br/><br/>
@@ -184,7 +364,7 @@
         
         <div id="teleportUp">
             <a href="#webHead">
-            <img src="img/Magic 1.png" id="imgTeleport"/>
+            <img src="https://ibb.co/tpwc6b9" id="imgTeleport"/>
         </div>
     </body>
 </html>
